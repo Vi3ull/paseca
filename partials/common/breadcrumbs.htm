@@ -1,0 +1,15 @@
+<div class="pt-20 pb-10 bg-gradient-to-r from-zinc-300 to-gray-200">
+  <div class="container flex flex-col mt-16">
+    <div class="font-poppins font-bold text-5xl text-bs-black leading-tight mb-3">
+      {{ this.page.title }}
+    </div>
+    {% if this.page.description  %}
+    <div class="font-quicksand font-medium text-xl text-bs-black leading-relaxed">
+      {{ this.page.description | raw }}
+    </div>
+    {% endif %}
+  </div>
+  <div class="bg-white/80 w-full py-2 mt-10">
+    {% component 'breadcrumbs' %}
+  </div>
+</div>

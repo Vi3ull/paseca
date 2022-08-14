@@ -1,0 +1,28 @@
+<div 
+    class="flex items-center flex-grow flex-shrink-0 justify-end"
+    x-data="menu"
+>
+    <a  
+        href="/page-list"
+        x-bind="btnOpen"
+        class="2xl:hidden"
+    >
+        {% partial 'common/icon' class="w-8 h-8 fill-transparent stroke-gray-500" icon="menu" %}
+    </a>
+    <div 
+        class="flex flex-col 2xl:justify-end 2xl:flex-row basis-full fixed top-0 left-full bottom-0 w-11/12 xs:w-3/5 sm:3/4 md:w-1/3 2xl:w-full bg-white 2xl:static open:-translate-x-full transition-transform ease-in duration-300 z-50 px-4"
+        x-bind="menuWrapper"
+    >
+        <div class="2xl:hidden text-end py-8">
+            <button 
+                type="button"
+                x-bind="btnClose"
+            >
+                {% partial 'common/icon' class="w-10 h-10 fill-transparent stroke-red-500/50 stroke-2 rounded-full border-2 border-red-500/50 ml-auto mr-0" icon="close" %}
+            </button>
+        </div>
+        <nav>
+            {% component 'generalMenu' %}
+        </nav>
+    </div>
+</div>

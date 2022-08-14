@@ -1,0 +1,33 @@
+:root {
+  --padding-x: 1rem;
+  --overlay: rgba(81,87,105,.4); 
+}
+
+
+$wrapperPadding: 15px;
+$baseFontSize: 16px;
+$baseFontWeight: 500;
+$baseLineHeight: 1;
+
+$screens: (
+  xs: 360px,
+  xxs: 480px, 
+  sm: 640px, 
+  md: 768px, 
+  lg: 992px, 
+  xl: 1280px,
+  2xl: 1536px,
+) !default; 
+
+$z-layers: (
+  default: 1,
+  link: 3,
+  dp-menu: 4,
+  header: 99,
+  modal: 100, 
+);
+
+$fonts : (
+  nunito: ('Nunito', sans-serif),
+  jost: ('Jost', sans-serif),
+);

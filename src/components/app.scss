@@ -1,0 +1,133 @@
+@import './!common/_';
+@import './aos/_';
+
+@tailwind base;
+
+@layer base {
+  input[type='text'],
+  input[type='password'],
+  input[type='email'],
+  input[type='number'],
+  input[type='url'],
+  input[type='date'],
+  input[type='datetime-local'],
+  input[type='month'],
+  input[type='week'],
+  input[type='time'],
+  input[type='search'],
+  input[type='tel'],
+  input[type='checkbox'],
+  input[type='radio'],
+  select,
+  select[multiple],
+  textarea {
+    @apply w-full border border-gray-300 rounded-3xl font-quicksand font-normal text-base text-zinc-900 leading-normal py-2 px-8 mt-1 mb-8;
+  }
+
+  label {
+    @apply font-poppins text-lg text-zinc-900 tracking-wide;
+  }
+}
+
+@tailwind components;
+
+@layer components {
+  @import './carousel/_';
+
+  @import './scrollbar/_';
+
+  .carousel {
+    &-intro {
+      --carouselSlidesCount:1;
+      --bulletColor:transparent;
+      --bulletColorActive:#3b3b3b;
+      --bulletBorderColor:#3b3b3b;
+    }
+  }
+
+  .title {
+    display: inline-block;
+    font-family: "Poppins",sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: var(--bs-black);
+    letter-spacing: 1.25;
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    display: inline-block;
+    font-family: "Quicksand",sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #ff4495;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin-bottom: 18px;
+  }
+
+  // .caption {
+  //   @apply inline-block font-jost font-normal text-bs-pink text-sm bg-white rounded-3xl border border-bs-pink/20 normal-case py-1 px-5 mb-5 mr-2;
+  // }
+
+  .link {
+    position: relative;
+    display: inline-block;
+    font-family: "Quicksand",sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--bs-black);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .3s ease-out 0s;
+  }
+
+  .link::before {
+    content: "";
+    position: absolute;
+    background: var(--bs-pink);
+    width: 100%;
+    height: 2px;
+    bottom: -12px;
+  }
+
+  .link:hover {
+    letter-spacing: 1px;
+  }
+
+  .button {
+    position: relative;
+    display: inline-block;
+    line-height: lh(58, 140);
+    padding-top: 0;
+    padding-bottom: 0;
+    padding: rem(10) rem(50);
+    font-family: 'Quicksand', 'sans-serif';
+    font-size: rem(16);
+    border-radius: 30px;
+    background-color: rgba(63,63,63,0.01);
+    color: #363636;
+    border: 2px solid transparent;
+    border: 2px solid #959595;
+    text-align: center;
+    background-position: 50% 50%;
+    background-size: cover;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      color: #ef4444;
+      border-color: #ef4444;
+    }
+  }
+
+  // @import './menu-toggle/_';
+
+  // @import './dropdown/_';
+
+  // @import './editor/_';
+
+  // @import './modal/_';
+}
+
+@tailwind utilities;

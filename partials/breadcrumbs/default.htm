@@ -1,0 +1,20 @@
+{% if breadcrumbs %}
+<div class="container flex" aria-label="Breadcrumb">
+  <ol class="inline-flex items-center space-x-1 md:space-x-3">
+      <li class="inline-flex items-center {{ breadcrumb.isActive ? 'active' : '' }}">
+        <a href="/" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+          {% partial 'common/icon' class="w-4 h-4 mr-2 fill-transparent stroke-2 stroke-gray-500" icon="home" %}
+          Главная
+        </a>
+      </li>
+      {% for breadcrumb in breadcrumbs %}
+        <li class="inline-flex items-center {{ breadcrumb.isActive ? 'active' : '' }}">
+          <a href="{{ breadcrumb.url }}" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+            {% partial 'common/icon' class="w-4 h-4 mr-2 fill-transparent stroke-2 stroke-gray-500 -rotate-90" icon="chevron" %}
+            {{ breadcrumb.title }}
+          </a>
+        </li>
+      {% endfor %}
+  </ol>
+</div>
+{% endif %}

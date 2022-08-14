@@ -1,0 +1,17 @@
+{% for item in items if not item.viewBag.isHidden %}
+    {% if item.items %} 
+    <ul class="flex flex-wrap items-center px-4 mb-3">
+        {% for item in item.items %}
+        <li class="mb-4">
+            <a 
+                href="{{ item.url }}"
+                class="font-quicksand font-light text-base text-gray-500 isActive:text-white hover:text-gray-400 px-4 {{ item.isActive ? 'isActive' : '' }}"
+            >
+                {{ item.title }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endfor %}
+

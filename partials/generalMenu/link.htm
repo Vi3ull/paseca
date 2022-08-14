@@ -1,0 +1,17 @@
+{% if item.url %}
+  <a 
+    href="{{ item.code ? item.code : item.url }}"
+    class="
+      relative block font-quicksand font-normal text-lg text-zinc-900 py-4 2xl:py-7 px-2 transition-all ease-in capitalize 
+      after:absolute after:right-1 after:-left-1 after:bottom-0 after:w-0 after:h-0.5 after:z-10 after:bg-red-500 after:transition-all after:duration-300 after:ease-out group-hover:after:w-full group-hover:after:right-auto group-hover:after:left-0 
+    "
+  >
+    {{ item.title }}
+  </a>
+{% else %}
+  <span 
+    class="relative block font-quicksand font-normal text-lg text-gray-400 py-4 2xl:py-7 px-2 transition-all ease-in capitalize"
+  >
+    {{ item.title }}
+  </span>
+{% endif %}

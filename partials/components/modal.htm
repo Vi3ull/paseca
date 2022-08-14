@@ -1,0 +1,63 @@
+<div class="modal" x-bind="modal">
+  <div 
+    class="modal__wrapper js-modal-wrapper scrollbar"
+    x-bind="modalWrapper"
+  > 
+    <button type="button" class="modal__close" x-bind="btnClose">
+      Закрыть
+    </button>
+    <div class="modal__content">
+      <div class="modal__title">
+        {{ title | raw }}
+      </div>
+      <div class="modal__body prose max-w-full">
+        {{ body | raw }}
+      </div>
+        {{ footer | raw }}
+    </div>
+    <form action="#" method="POST">
+      <div class="flex flex-wrap">
+        <div class="w-full md:w-1/2 mb-7 px-4">
+          <label for="first-name" class="sr-only block text-sm font-medium text-gray-700">
+            Имя
+          </label>
+          <input 
+            type="text" 
+            name="name" 
+            id="name" 
+            autocomplete="name"
+            placeholder="Ваше имя"
+            required
+          >
+        </div>
+        <div class="w-full md:w-1/2 mb-7 px-4">
+          <label for="phone" class="sr-only block text-sm font-medium text-gray-700">
+            Телефон
+          </label>
+          <input 
+            type="number" 
+            name="phone" 
+            id="phone" 
+            autocomplete="email" 
+            placeholder="+7 (999) 999-99-99"
+            required
+          >
+        </div>
+        <button 
+         type="submit" 
+          class="font-nunito font-normal text-sm text-bs-pink text-center tracking-widest uppercase bg-white border border-bs-pink cursor-pointer py-4 px-11 mx-4 mt-4 mb-8"
+        >
+          Заказать
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% macro footer(tags) %}
+  <ul class="modal__footer">
+    {% for tag in tags %}
+      <li class="modal__footer-item">{{ tag.name }}{{ loop.last ? '' : ',' }}</li>
+    {% endfor %}
+  </ul>
+{% endmacro %}

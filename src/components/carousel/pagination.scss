@@ -1,0 +1,28 @@
+// .carousel__pagination
+
+&__pagination {
+  display: flex;
+  list-style: none;
+}
+
+// .carousel__pagination-bullet
+
+&__pagination-bullet {
+  display: inline-block;
+  width: var(--bulletWidth);
+  height: var(--bulletHeight);
+  cursor: pointer;
+  border: 1px solid var(--bulletBorderColor);
+  background-color: var(--bulletColor);
+  border-radius: rem(100);
+
+  &+& {
+    margin-left: var(--bulletGap);
+  }
+
+  // .carousel__pagination-bullet--state--active
+
+  &--state--active {
+    background-color: var(--bulletColorActive);    
+  }
+}

@@ -1,0 +1,37 @@
+<section class="py-24">
+  <div class="container">
+    <div class="prose max-w-none text-center">
+      {% if data.description %}
+        {{ data.description | raw }}
+      {% else %}
+        <h2>Our main services</h2>
+        <p>Nullam mattis sed justo quis sollicitudin. Maecenas lobortis fermentum fringilla. Vivamus in diam erat.</p>
+      {% endif %}
+    </div>
+    <div class="flex flex-wrap">
+      {% set items = range(1,3) %}
+      {% if data.items %}
+          {% set items = data.items %}
+      {% endif %}
+
+      {% for item in items %}
+      <div class="flex flex-col w-full md:w-1/2 lg:w-1/3 h-full prose prose-headings:text-xl prose-a:mt-auto prose-a:mb-0 max-w-none px-8 pt-20">
+        {% if item.image %}
+          {{ item.image | media }}
+        {% else %}
+          {% partial 'common/icon' class="w-10 h-10 stroke-2 stroke-red-500 fill-transparent mb-8" icon="pencil" %}
+        {% endif %}
+        <div>
+          {% if item.description %}
+            {{ item.description | raw }}
+          {% else %}
+            <h2>Architecture</h2>
+            <p>Lorem ipsum dolor sit amet, consect tuiscing elit. Mauris vitae undas sodales lectus, non ultrices nisi.</p>
+            <a href="#">Learn more</a>
+          {% endif %}
+        </div>
+      </div>  
+      {% endfor %}
+    </div>
+  </div>
+</section>

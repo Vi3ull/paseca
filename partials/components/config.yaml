@@ -1,0 +1,120 @@
+editor:
+  name: Редактор
+  description: Редактор
+  icon: icon-pencil-square-o
+  fields:
+    content: 
+      type: richeditor
+
+intro:
+  name: Интро
+  description: Интро
+  icon: icon-film
+  fields:
+    description:
+      label: Описание 
+      type: richeditor
+      span: full
+    items:
+      type: repeater
+      style: collapsed
+      prompt: Добавить элемент
+      span: full
+      form:
+        fields:
+          image: 
+            label: Изображение
+            type: mediafinder
+            required: true
+            mode: image
+
+our_services:
+  name: Наши услуги
+  description: Наши услуги
+  icon: icon-building
+  fields:
+    description:
+      label: Описание 
+      type: richeditor
+      span: full
+    items:
+      type: repeater
+      style: collapsed
+      prompt: Добавить элемент
+      span: full
+      form:
+        fields:
+          image: 
+            label: Изображение
+            type: mediafinder
+            required: true
+            mode: image
+            span: full
+          description:
+            label: Подробное описание
+            type: richeditor
+            size: large
+            span: full
+          
+our_products:
+  name: Наши товары
+  description: Наши товары
+  icon: icon-film
+  fields:
+    items:
+      type: repeater
+      style: collapsed
+      prompt: Добавить элемент
+      span: full
+      form:
+        fields:
+          image: 
+            label: Изображение
+            type: mediafinder
+            required: true
+            mode: image
+        description:
+          label: Описание 
+          type: richeditor
+          span: full
+
+our_works:
+  name: Наши работы
+  description: Наши работы
+  icon: icon-film
+  fields:
+    description:
+      label: Описание 
+      type: richeditor
+      span: full
+    items:
+      type: repeater
+      style: collapsed
+      prompt: Добавить элемент
+      span: full
+      form:
+        fields:
+          image: 
+            label: Изображение
+            type: mediafinder
+            required: true
+            mode: image
+          description:
+            label: Описание 
+            type: richeditor
+            span: full
+
+contact:
+  name: Контакты
+  description: Контакты
+  icon: icon-handshake-o
+  fields:
+    description:
+      label: Описание 
+      type: richeditor
+      span: full
+    map:
+      label: Карта
+      type: codeeditor
+      size: small
+      language: html

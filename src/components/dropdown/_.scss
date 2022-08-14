@@ -1,0 +1,10 @@
+.dropdown {
+  position: absolute;
+  inset: 0;
+  background-color: var(--light);
+  visibility: hidden;
+  
+  &--active {
+    visibility: visible;
+  }
+}

@@ -1,0 +1,64 @@
+<section class="py-24">
+  <div class="prose mx-auto text-center">
+    {% if item.description %}
+      {{ item.description | raw }}
+    {% else %}
+      <h2>Our latest work</h2>
+      <p>Nullam mattis sed justo quis sollicitudin. Maecenas lobortis fermentum fringilla. Vivamus in diam erat.</p>
+    {% endif %}
+  </div>
+  <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 my-16">
+    {% set items = range(1,5) %}
+    
+    {% if data.items %}
+      {% set items = data.items %}
+    {% endif %}
+
+    {% set multiplier = 1 %}
+
+    {% for item in items %}
+     
+      {% if multiplier < 5 %}
+        {% set multiplier = multiplier + 1 %}
+        {% set delay = 100 * multiplier %}
+      {% else %}
+        {% set multiplier = 1 %}
+      {% endif %}
+
+      <li class="py-1 px-1">
+        <article 
+          class="relative group w-full h-full overflow-hidden"
+          data-aos="fade-up"
+          data-aos-duration="500"
+          data-aos-delay="{{ delay }}"
+        >
+          <picture>
+            <img 
+              src="{{ item.image ? item.image | media : 'https://via.placeholder.com/420x660' }}"
+              alt=""
+              class="max-w-full w-full h-auto group-hover:scale-125 transition-all duration-500 ease-in-out"
+            >
+          </picture>
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 flex flex-col items-center bg-gradient-to-tr from-gray-500/50 to-red-500/50 transition-opacity duration-500 ease-in-out">
+            <div class="ml-auto mr-0 mt-3 group-hover:mt-0 p-5 transition-all duration-300 ease-in-out">
+              {% partial 'common/icon' class="w-10 h-10 fill-transparent stroke-white" icon="expand" %}
+            </div>
+            <div class="prose prose-headings:font-poppins prose-headings:text-white prose-headings:text-2xl prose-headings:font-bold prose-headings:mb-2 prose-p:text-white prose-p:text-sm prose-a:text-white prose-a:text-sm prose-a:font-poppins prose-a:font-normal prose-a:uppercase text-center my-auto opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out">
+              {% if item.description %}
+                {{ item.description | raw }}
+              {% else %}
+                <h3>Central offices</h3>
+                <a href="#">Offices</a>
+              {% endif %}
+            </div>
+          </div>
+        </article>
+      </li>
+    {% endfor %}
+  </ul>
+  {% if data.has_btn %}
+    <div class="flex justify-center">
+      <a href="{{ data.btn_url }}" class="button text-center">{{ data.btn_text }}</a>
+    </div>
+  {% endif %}
+</section>
