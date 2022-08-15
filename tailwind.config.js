@@ -33,39 +33,13 @@ module.exports = {
       'quicksand': "'Quicksand', 'sans-serif'",
     },
     extend: {
-      // fontSize: {
-      //   'xs': '.75rem',
-      //   // 'sm': '.875rem',
-      //   // 'tiny': '.875rem',
-      //   'base': '1rem',
-      //   // 'lg': '1.125rem',
-      //   'xl': '1.25rem',
-      //   '2xl': '1.5rem',
-      //   // '3xl': '1.875rem',
-      //   '4xl': '2.25rem',
-      //   // '5xl': '3rem',
-      //   '6xl': '3.625rem',
-      //   // '7xl': '5rem',
-      // },
       colors: {
         'padding-x': '1rem',
         'overlay': 'rgba(81,87,105,.4);',
       },
-      // boxShadow: {
-      //   'header': '0 10px 15px rgb(25 25 25 / 10%)',
-      //   'card': '0 25px 35px rgb(68 162 255 / 10%)',
-      //   'image': '0 15px 25px rgb(0 4 74 / 4%)',
-      //   'brands': '0 15px 25px rgb(68 162 255 / 6%)',
-      //   'testimonials': '0 15px 25px rgb(68 162 255 / 6%)',
-      // },
-      // backgroundImage: theme => ({
-      //   'footer-texture': "url('../img/footer-texture.jpg')",
-      //   'shape-one': "url('../img/shape-one.webp')",
-      //   'shape-two': "url('../img/shape-two.webp')",
-      // }),
-      // spacing: {
-      //   '1/10': '10%',
-      // },
+      gridAutoRows: {
+        '2fr': 'minmax(660px, 2fr)',
+      },
       typography: theme => ({
 				DEFAULT: {
 					css: {

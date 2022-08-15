@@ -7,7 +7,7 @@
       <p>Nullam mattis sed justo quis sollicitudin. Maecenas lobortis fermentum fringilla. Vivamus in diam erat.</p>
     {% endif %}
   </div>
-  <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 my-16">
+  <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 auto-rows-2fr my-16">
     {% set items = range(1,5) %}
     
     {% if data.items %}
@@ -36,7 +36,7 @@
             <img 
               src="{{ item.image ? item.image | media : 'https://via.placeholder.com/420x660' }}"
               alt=""
-              class="max-w-full w-full h-auto group-hover:scale-125 transition-all duration-500 ease-in-out"
+              class="max-w-full w-full h-full object-cover group-hover:scale-125 transition-all duration-500 ease-in-out"
             >
           </picture>
           <div class="absolute inset-0 opacity-0 group-hover:opacity-100 flex flex-col items-center bg-gradient-to-tr from-gray-500/50 to-red-500/50 transition-opacity duration-500 ease-in-out">
