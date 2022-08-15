@@ -2,20 +2,32 @@
   <div class="container flex flex-col">
     <div class="py-6 mb-12">
       {% if data.map %}
-        {{ data.map }}
+        {{ data.map | raw }}
       {% else %}
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2241.8737076478715!2d37.64769031623251!3d55.81279288056941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b535dce8fad73f%3A0x1fbdf00d8828c6d3!2z0JzQsNC70L7QvNC-0YHQutC-0LLRgdC60LDRjyDRg9C7LiwgMTgg0YHRgtGA0L7QtdC90LjQtSAxLCDQnNC-0YHQutCy0LAsIDEyOTE2NA!5e0!3m2!1sru!2sru!4v1660494696402!5m2!1sru!2sru" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       {% endif %}
     </div>
     <div class="px-4 py-5 bg-white sm:p-6 border border-gray-300/50 shadow rounded-3xl">
       <div class="prose mb-14">
-        {% if item.description %}
-          {{ item.description | raw }}
+        {% if data.description %}
+          {{ data.description | raw }}
         {% else %}
           <h4>Contact Us</h4>
         {% endif %}
       </div>
-      <form action="#" method="POST">
+      <form action="#" method="POST" 
+        data-request="{{ genericForm }}::onFormSubmit"
+        data-request-flash="true"
+        data-request-success="
+            $.oc.flashMsg({'text': 'Ваша заявка успешно отправлена!.', 'class': 'success', 'interval': 3});
+            $(this).find('input[type=text], input[type=email], textarea').val('');
+        "
+        data-request-error="
+            $.oc.flashMsg({'text': 'Произошла ошибка!.', 'class': 'error', 'interval': 3})"  
+        >     
+        {{ form_token() }}
+        {#<div id="{{ genericForm }}_forms_flash"></div>#}
+
         <div class="flex flex-wrap w-full">
           <div class="w-full md:w-1/2 px-4">
             <label for="first-name" class="block text-sm font-medium text-gray-700">
@@ -58,8 +70,9 @@
             </textarea>
           </div>
           <button 
-           type="submit" 
+            type="submit" 
             class="font-poppins font-bold text-base text-red-500 text-center tracking-widest uppercase bg-white border border-red-500 rounded-3xl cursor-pointer py-4 px-11 mx-4 mt-4 mb-8 hover:bg-red-500 hover:text-white transition-all duration-300 ease-in"
+            id="simpleContactSubmitButton"
           >
             Отправить
           </button>
