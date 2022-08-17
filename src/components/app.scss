@@ -51,11 +51,6 @@
 
   @import './scrollbar/_';
 
-  .lock {
-    position:fixed;
-    overflow-y: scroll;
-  }
-
   .carousel {
     &-intro {
       --carouselSlidesCount:1;
