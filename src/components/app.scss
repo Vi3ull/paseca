@@ -4,6 +4,21 @@
 @tailwind base;
 
 @layer base {
+  :root {
+    --padding-x: 1rem;
+    --clrHeader: 255 255 255;
+    --clrBody: 255 255 255;
+    --clrFooter: 63 63 70;
+    --clrHeading: 24 24 27;
+    --clrText: 75 85 99;
+    --clrLink: 54 53 48;
+    --clrCta: 239 68 68;
+    --clrSelection: 239 68 68;
+    --clrHover: 239 68 68;
+    --clrOverlay: 81 87 105;
+  }
+  
+
   input[type='text'],
   input[type='password'],
   input[type='email'],
@@ -36,6 +51,11 @@
 
   @import './scrollbar/_';
 
+  .lock {
+    position:fixed;
+    overflow-y: scroll;
+  }
+
   .carousel {
     &-intro {
       --carouselSlidesCount:1;
@@ -66,46 +86,38 @@
     margin-bottom: 18px;
   }
 
-  .accent {
-    font-family: 'Poppins', 'sans-serif';
-    font-weight: 700;
-    color: #ef4444;
-    font-style: normal;
-  }
+  // .accent {
+  //   font-family: 'Poppins', 'sans-serif';
+  //   font-weight: 700;
+  //   color: #ef4444;
+  //   font-style: normal;
+  // }
 
-  .button {
-    position: relative;
-    display: inline-block;
-    line-height: lh(58, 140);
-    padding-top: 0;
-    padding-bottom: 0;
-    padding: rem(10) rem(50);
-    font-family: 'Quicksand', 'sans-serif';
-    font-size: rem(16);
-    border-radius: 30px;
-    background-color: rgba(63,63,63,0.01);
-    color: #363636;
-    border: 2px solid transparent;
-    border: 2px solid #959595;
-    text-align: center;
-    background-position: 50% 50%;
-    background-size: cover;
-    cursor: pointer;
-    transition: all .3s ease-in-out;
+  // .button {
+  //   position: relative;
+  //   display: inline-block;
+  //   line-height: lh(58, 140);
+  //   padding-top: 0;
+  //   padding-bottom: 0;
+  //   padding: rem(10) rem(50);
+  //   font-family: 'Quicksand', 'sans-serif';
+  //   font-size: rem(16);
+  //   border-radius: 30px;
+  //   background-color: #ffffff;
+  //   color: var(--clrText);
+  //   border: 2px solid transparent;
+  //   border: 2px solid var(--clrText);
+  //   text-align: center;
+  //   background-position: 50% 50%;
+  //   background-size: cover;
+  //   cursor: pointer;
+  //   transition: all .3s ease-in-out;
 
-    &:hover {
-      color: #ef4444;
-      border-color: #ef4444;
-    }
-  }
-
-  // @import './menu-toggle/_';
-
-  // @import './dropdown/_';
-
-  // @import './editor/_';
-
-  // @import './modal/_';
+  //   &:hover {
+  //     color: var(--clrHover);
+  //     border-color: var(--clrHover);
+  //   }
+  // }
 }
 
 @tailwind utilities;

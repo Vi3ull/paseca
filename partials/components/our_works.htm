@@ -1,7 +1,7 @@
 <section class="py-24">
   <div class="prose mx-auto text-center">
-    {% if item.description %}
-      {{ item.description | raw }}
+    {% if data.description %}
+      {{ data.description | raw }}
     {% else %}
       <h2>Our latest work</h2>
       <p>Nullam mattis sed justo quis sollicitudin. Maecenas lobortis fermentum fringilla. Vivamus in diam erat.</p>
@@ -39,7 +39,7 @@
               class="max-w-full w-full h-full object-cover group-hover:scale-125 transition-all duration-500 ease-in-out"
             >
           </picture>
-          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 flex flex-col items-center bg-gradient-to-tr from-gray-500/50 to-red-500/50 transition-opacity duration-500 ease-in-out">
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 flex flex-col items-center bg-gradient-to-tr from-clr-overlay/50 to-clr-hover/50 transition-opacity duration-500 ease-in-out">
             <div class="ml-auto mr-0 mt-3 group-hover:mt-0 p-5 transition-all duration-300 ease-in-out">
               {% partial 'common/icon' class="w-10 h-10 fill-transparent stroke-white" icon="expand" %}
             </div>

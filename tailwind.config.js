@@ -7,6 +7,10 @@ const round = (num) =>
     .replace(/\.0$/, '')
 const rem = (px) => `${round(px / 16)}rem`
 const em = (px, base) => `${round(px / base)}em`
+const lh = (fontSize, lineHeight) => `${round(lineHeight / fontSize)}`
+// const paddingX = (screenSize, px) => {
+//   return `calc(50vw - calc(50vw - ${(((px * 100) / (screenSize / 2))}))`;
+// }
 
 
 module.exports = {
@@ -29,13 +33,24 @@ module.exports = {
       '3xl': '1920px',
     },
     fontFamily: {
-      'poppins': "'Poppins', 'sans-serif'",
-      'quicksand': "'Quicksand', 'sans-serif'",
+      'poppins': 'Poppins, sans-serif',
+      'quicksand': 'Quicksand, sans-serif',
     },
     extend: {
       colors: {
-        'padding-x': '1rem',
-        'overlay': 'rgba(81,87,105,.4);',
+        'clr-header': 'rgb(var(--clrHeader) / 1)',
+        'clr-body': 'rgb(var(--clrBody) / 1)',
+        'clr-footer': 'rgb(var(--clrFooter) / 1)',
+        'clr-heading': 'rgb(var(--clrHeading) / 1)',
+        'clr-text': 'rgb(var(--clrText) / 1)',
+        'clr-link': 'rgb(var(--clrLink) / 1)',
+        'clr-cta': 'rgb(var(--clrCta) / 1)',
+        'clr-selection': 'rgb(var(--clrSelection) / 1)',
+        'clr-hover': 'rgb(var(--clrHover) / 1)',
+        'clr-overlay': 'rgb(var(--clrOverlay) / 1)',
+      },
+      spacing: {
+        'padding-x': 'var(--padding-x)',
       },
       gridAutoRows: {
         '2fr': 'minmax(660px, 2fr)',
@@ -47,7 +62,7 @@ module.exports = {
               fontFamily: theme('fontFamily.poppins'),
               fontWeight: theme('fontWeight.bold'),
               fontSize: em(40, 16),
-              color: theme('colors.zinc[900]'),
+              color: theme('colors.clr-heading'),
               lineHeight: theme('lineHeight.snug'),
               marginTop: theme('spacing.0'),
               marginBottom: theme('spacing.3'),
@@ -59,7 +74,7 @@ module.exports = {
               fontFamily: theme('fontFamily.poppins'), 
               fontWeight: theme('fontWeight.bold'),
               fontSize: em(40, 16),
-              color: theme('colors.zinc[900]'),
+              color: theme('colors.clr-heading'),
               lineHeight: theme('lineHeight.snug'),
               marginTop: theme('spacing.0'),
               marginBottom: theme('spacing.3'),
@@ -68,7 +83,7 @@ module.exports = {
               fontFamily: theme('fontFamily.poppins'), 
               fontWeight: theme('fontWeight.bold'),
               fontSize: em(24, 16),
-              color: theme('colors.zinc[900]'),
+              color: theme('colors.clr-heading'),
               lineHeight: theme('lineHeight.snug'),
               marginTop: theme('spacing.0'),
               marginBottom: theme('spacing.3'),
@@ -77,7 +92,7 @@ module.exports = {
               fontFamily: theme('fontFamily.poppins'), 
               fontWeight: theme('fontWeight.bold'),
               fontSize: em(20, 16),
-              color: theme('colors.zinc[900]'),
+              color: theme('colors.clr-heading'),
               lineHeight: theme('lineHeight.snug'),
               marginTop: theme('spacing.0'),
               marginBottom: theme('spacing.3'),
@@ -86,30 +101,18 @@ module.exports = {
               fontFamily: theme('fontFamily.quicksand'), 
               fontWeight: theme('fontWeight.normal'),
               fontSize: em(18, 16),
-              color: theme('colors.gray[600]'),
+              color: theme('colors.clr-text'),
               marginBottom: theme('spacing.4'),
             },
-            // span: {
-            //   fontFamily: theme('fontFamily.quicksand'), 
-            //   fontWeight: theme('fontWeight.normal'),
-            //   fontSize: em(12, 16),
-            //   color: theme('colors.red-500'),
-            //   lineHeight: theme('140%'),
-            //   // marginBottom: theme('spacing.5'),
-            //   // marginRight: theme('spacing.2'),
-            //   textTransform: 'uppercase',
-            //   letterSpacing: theme('letterSpacing.widest'),
-            //   borderRadius: theme('borderRadius.3xl'),
-            // },
             a: {
               fontFamily: theme('fontFamily.quicksand'), 
               fontWeight: theme('fontWeight.bold'),
               fontSize: em(16, 16),
-              color: theme('colors.zinc[900]'),
+              color: theme('colors.clr-link'),
               textDecoration: 'none',
               transition: 'all .3s ease-in-out',
               '&:hover': {
-                color: theme('colors.red[500]'),
+                color: theme('colors.clr-cta'),
               },
             },
             blockquote: {
@@ -119,7 +122,7 @@ module.exports = {
                 fontWeight: theme('fontWeight.semibold'),
                 fontStyle: 'normal',
                 fontSize: em(16, 16),
-                color: theme('colors.zinc[900]'),
+                color: theme('colors.clr-heading'),
               },
               'img': {
                 display: 'inline-block',
@@ -138,7 +141,7 @@ module.exports = {
     container: false
   },
   plugins: [
-    plugin(function ({ addVariant, addComponents }) {
+    plugin(function ({ addVariant, addComponents, theme }) {
       addVariant('header--sticky', '&.header--sticky');
       addVariant('open', '&.open');
       addVariant('isActive', '&.isActive');
@@ -151,25 +154,57 @@ module.exports = {
           maxWidth: '100%',
           padding: '0 var(--padding-x)',
           '@screen sm': {
-            '--padding-x': 'calc(50vw - 300px)',
+            '--padding-x': 'calc(50vw - calc(50vw - 3.125%))',
           },
-          '@screen md': {
-            '--padding-x': 'calc(50vw - 360px)',
-          },
+          // '@screen md': {
+          //   '--padding-x': 'calc(50vw - calc(50vw - 6.25%))',
+          // },
           '@screen lg': {
-            '--padding-x': 'calc(50vw - 480px)',
+            '--padding-x': 'calc(50vw - calc(50vw - 6.25%))',
           },
-          '@screen xl': {
-            '--padding-x': 'calc(50vw - 600px)',
+          // '@screen xl': {
+          //   '--padding-x': 'calc(50vw - calc(50vw - 3.125%))',
+          // },
+          // '@screen 2xl': {
+          //   '--padding-x': 'calc(50vw - calc(50vw - 3.125%))',
+          // },
+          // '@screen 3xl': {
+          //   '--padding-x': 'calc(50vw - calc(50vw - 6.25%))',
+          // },
+        },
+        '.button': {
+          position: 'relative',
+          display: 'inline-block',
+          lineHeight: lh(58, 140),
+          paddingTop: em(10, 16),
+          paddingBottom: em(10, 16),
+          paddingLeft: em(50, 16),
+          paddingRight: em(50, 16),
+          fontFamily: theme('fontFamily.quicksand'), 
+          fontSize: rem(16),
+          borderRadius: '30px',
+          backgroundColor: theme('colors.white'),
+          color: theme('colors.clr-text'),
+          border: '2px',
+          borderStyle: 'solid',
+          borderColor: theme('colors.clr-text'),
+          textAlign: 'center',
+          backgroundPosition: '50% 50%',
+          backgroundSize: 'cover',
+          cursor: 'pointer',
+          transition: 'all .3s ease-in-out',
+          '&:hover': {
+            color: theme('colors.clr-hover'),
+            borderColor: theme('colors.clr-hover'),
           },
-          '@screen 2xl': {
-            '--padding-x': 'calc(50vw - 720px)',
-          },
-          '@screen 3xl': {
-            '--padding-x': 'calc(50vw - 940px)',
-          },
-        }
-      })
+        },
+        '.accent': {
+          fontFamily: theme('fontFamily.poppins'), 
+          fontWeight: theme('fontWeight.bold'),
+          color: theme('colors.clr-cta'),
+          fontStyle: 'normal',
+        },
+      });
     }),
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),

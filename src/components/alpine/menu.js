@@ -1,6 +1,10 @@
 export default () => ({
   isOpen: false,
-  lastScrollTopPosition: 0,
+  // lastScrollTopPosition: 0,
+
+  // getBodyScrollTop() {
+  //   return self.pageYOffset || (document.documentElement && document.documentElement.scrollTop) || (document.body && document.body.scrollTop);
+  // },
 
   onOpenMenu() {
     if (this.isOpen) {
@@ -8,10 +12,11 @@ export default () => ({
     }
 
     this.isOpen = true
-    this.lastScrollTopPosition = window.scrollY;
+    // this.lastScrollTopPosition = window.scrollY;
 
-    document.body.style.height = "100vh";
-    document.body.style.overflowY = "hidden";
+    // document.body.style.height = "100vh";
+    // document.body.style.overflowY = "hidden";
+    // document.body.style.marginRight = 'calc(-1 * (100vw - 100%))';
   },
 
   onCloseMenu() {
@@ -19,9 +24,10 @@ export default () => ({
 
     this.isOpen = false
 
-    document.body.style.height = "auto";
-    document.body.style.overflowY = "visible";
-    window.scrollTo(0, this.lastScrollTopPosition);
+    // document.body.style.height = "auto";
+    // document.body.style.overflowY = "visible";
+    // document.body.style.marginRight = '0'; 
+    // window.scrollTo(0, this.lastScrollTopPosition);
   },
 
   btnOpen: {

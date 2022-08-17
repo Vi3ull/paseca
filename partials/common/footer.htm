@@ -1,28 +1,20 @@
-<footer class="bg-zinc-700">
-    <div class="container flex flex-col lg:flex-row flex-wrap items-center lg:items-start lg:justify-between py-12 px-14">
-        <div class="text-white text-2xl tracking-widest font-bold uppercase mb-8 px-8">
-            <p>Paseca</p>
-        </div>
-        {% component 'footerMenu' %}
-        <div class="prose prose-headings:text-white prose-headings:text-base prose-p:text-white prose-p:text-base prose-a:text-white prose-a:text-base text-center lg:text-start px-4">
-            <p>г. Москва, ул. Маломосковская, д 18, с.1</p>
-            <a href="mailto:mail@paseca.ru">mail@paseca.ru</a>
+<footer class="bg-clr-footer">
+    <div class="container">
+        <div class="flex flex-col lg:flex-row flex-wrap items-center lg:items-start lg:justify-between py-12 px-14">
+            {% if this.theme.footer_logo %}
+            <div class="relative">
+                <img src="{{ this.theme.footer_logo | media }}" class="w-full max-h-8 mb-8" alt="">
+                <a href="/" class="absolute inset-0 z-10"></a>
+            </div>
+            {% else %}
+            <a href="/" class="text-white text-2xl tracking-widest font-bold uppercase mb-8 px-8">
+                Paseca
+            </a>
+            {% endif %}
+            {% component 'footerMenu' %}
+            <div class="prose prose-headings:font-quicksand prose-headings:text-cls-heading prose-headings:text-base prose-p:text-white prose-p:text-base prose-a:text-clr-link prose-a:text-base text-center lg:text-start px-4">
+                {{ this.theme.footer_text | raw }}
+            </div>
         </div>
     </div>
 </footer>
-
-{#
-<footer class="bg-footer-texture pt-24">
-    <div class="container grid grid-cols-12">
-        <div class="col-span-8 md:col-span-6 lg:col-span-4 px-4">
-            <div class="max-h-12 w-full h-auto mb-9">
-                <img src="https://preview.colorlib.com/theme/calvino/assets/img/logo/xlogo2_footer.png.pagespeed.ic.alcdWjq3I2.webp" alt="">
-            </div>
-            <div class="font-quicksand font-medium text-base text-bs-black-light leading-relaxed mb-5">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat, facilis. Rem dolor illo cum animi provident, neque deleniti unde est explicabo quisquam dolorum cumque omnis quibusdam praesentium autem quo libero.
-            </div>
-        </div>
-        {% component 'footerMenu' %}
-    </div>
-</footer>
-#}

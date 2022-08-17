@@ -17,23 +17,26 @@ messages_success = "Ваша форма была успешно отправле
 messages_errors = "В вашей заявке содержатся ошибки."
 reset_form = 1
 inline_errors = "disabled"
-js_on_success = "$.oc.flashMsg({
-    'text': 'Ваша заявка успешно отправлена!.',
-    'class': 'success',
-    'interval': 3
-});
-$(this).find('input[type=text], input[type=email], textarea').val('');"
-js_on_error = "$.oc.flashMsg({
-    'text': 'В вашей заявке содержатся ошибки!.',
-    'class': 'error',
-    'interval': 3
-})"
 sanitize_data = "disabled"
 anonymize_ip = "disabled"
 recaptcha_theme = "light"
 recaptcha_type = "image"
 recaptcha_size = "normal"
 emails_date_format = "Y-m-d"
+==
+<?php
+function onStart() {
+  $theme_colors = array();
+  $colors = $this->theme->colors;
+  if (isset($this->theme->colors)) {
+    foreach ($colors as $key => $color) {
+        list($r, $g, $b) = sscanf($color, "#%02x%02x%02x");
+        $theme_colors += [ $key => "$r $g $b"];
+    }
+    $this['theme_colors'] = $theme_colors;
+  }
+}
+?>
 ==
 {variable 
   name="pageContent" 
@@ -54,7 +57,7 @@ emails_date_format = "Y-m-d"
   {% partial 'common/head' %}
 </head>
   <body 
-    class="flex flex-col min-h-screen bg-white selection:bg-red-500 selection:text-white"
+    class="flex flex-col min-h-screen bg-clr-body selection:bg-clr-selection selection:text-white"
   >
     {{ this.theme.include_body_begin }}
     {% partial 'common/header' %}

@@ -1,6 +1,14 @@
 <div class="py-12">
+  <div class="prose mx-auto text-center">
+    {% if data.description %}
+      {{ data.description | raw }}
+    {% else %}
+      <h2>Our Office</h2>
+    {% endif %}
+  </div>
   <div class="container flex flex-col">
-    <div class="py-6 mb-12">
+    <div class="relative mt-6 mb-12 bg-clr-overlay/30">
+      <div class="absolute inset-0 top-1/2 font-quicksand font-normal text-sm text-clr-text text-center -z-10">Карта загружается...</div>
       {% if data.map %}
         {{ data.map | raw }}
       {% else %}
@@ -8,12 +16,8 @@
       {% endif %}
     </div>
     <div class="px-4 py-5 bg-white sm:p-6 border border-gray-300/50 shadow rounded-3xl">
-      <div class="prose mb-14">
-        {% if data.description %}
-          {{ data.description | raw }}
-        {% else %}
-          <h4>Contact Us</h4>
-        {% endif %}
+      <div class="prose max-w-none prose-headings:font-quicksand mb-8">
+          <p>Связаться с нами</p>
       </div>
       <form action="#" method="POST" 
         data-request="{{ genericForm }}::onFormSubmit"
@@ -71,7 +75,7 @@
           </div>
           <button 
             type="submit" 
-            class="font-poppins font-bold text-base text-red-500 text-center tracking-widest uppercase bg-white border border-red-500 rounded-3xl cursor-pointer py-4 px-11 mx-4 mt-4 mb-8 hover:bg-red-500 hover:text-white transition-all duration-300 ease-in"
+            class="font-poppins font-bold text-base text-clr-cta text-center tracking-widest uppercase bg-white border border-clr-cta rounded-3xl cursor-pointer py-4 px-11 mx-4 mt-4 mb-8 hover:bg-clr-cta hover:text-white transition-all duration-300 ease-in"
             id="simpleContactSubmitButton"
           >
             Отправить

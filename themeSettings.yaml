@@ -36,3 +36,75 @@ tabs:
         span: full
         type: textarea
         tab: Includes
+
+    block_section:
+        tab: Внешний вид
+        type: section
+        label: Управление блоками сайта
+
+    header_logo:
+        tab: Внешний вид
+        label: Логотип в шапке сайта
+        type: mediafinder
+
+    footer_logo:
+        tab: Внешний вид
+        label: Логотип в подвале сайта
+        type: mediafinder
+
+    footer_text:
+        tab: Внешний вид
+        label: Текст в подвале сайта
+        type: richeditor
+
+    color_section: 
+        tab: Внешний вид
+        type: section
+        label: Управление палитрой сайта
+
+    colors:
+        tab: Внешний вид
+        type: nestedform
+        showPanel: true
+        form:
+            fields:
+                clrHeader:
+                    label: Цвет "шапки" сайта
+                    type: colorpicker
+                    default: '#ffffff'
+                clrBody:
+                    label: Цвет фона сайта
+                    type: colorpicker
+                    default: '#ffffff'
+                clrFooter:
+                    label: Цвет "подвала" сайта
+                    type: colorpicker
+                    default: '#3f3f46'
+                clrHeading:
+                    label: Цвет заголовков
+                    type: colorpicker
+                    default: '#18181b'
+                clrText:
+                    label: Цвет текста
+                    type: colorpicker
+                    default: '#4b5563'
+                clrLink:
+                    label: Цвет ссылок
+                    type: colorpicker
+                    default: '#363530'
+                clrCta:
+                    label: Цвет CTA элементов
+                    type: colorpicker
+                    default: '#ef4444'
+                clrSelection:
+                    label: Цвет при выделении текста
+                    type: colorpicker
+                    default: '#ef4444'
+                clrHover:
+                    label: Цвет при наведении на элементы
+                    type: colorpicker
+                    default: '#ef4444'
+                clrOverlay:
+                    label: Цвет оверлея
+                    type: colorpicker
+                    default: '#515769'

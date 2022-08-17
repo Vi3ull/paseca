@@ -29,18 +29,24 @@ const options = {
   },
 }; 
 
+import initCarousel from './carousel/_';
+
 document.querySelectorAll( '.js-carousel' ).forEach( $el => {
   if (document.querySelectorAll( '.js-carousel' )) {
-    initInView( $el, () => {
-      import(
-        './carousel/_.js' /* webpackChunkName: "/js/carousel" */
-      ).then( module => {
-        const initCarousel = module.default;
-        initCarousel( $el, {
-          ...options, 
-        })
-      });
-    });
+    initCarousel( $el, {
+      ...options, 
+    })
+    
+    // initInView( $el, () => {
+    //   import(
+    //     './carousel/_.js' /* webpackChunkName: "/js/carousel" */
+    //   ).then( module => {
+    //     const initCarousel = module.default;
+    //     initCarousel( $el, {
+    //       ...options, 
+    //     })
+    //   });
+    // });
   }
 });
 
